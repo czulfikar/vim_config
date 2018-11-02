@@ -53,6 +53,9 @@ set lazyredraw
 "set colorcolumn=100
 "highlight ColorColumn ctermbg=darkgray
 
+" Preserve last editing position in vim
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " treat C files differently from C++ files
 augroup project
 	autocmd!
@@ -102,12 +105,12 @@ let g:clang_library_path='/usr/lib/llvm-3.8/lib'
 set tags=./tags;/
 
 " screen configuration
-autocmd VimEnter * nested ScreenShell
+"autocmd VimEnter * nested ScreenShell
 let g:ScreenShellQuitOnVimExit = 1
 
 " nerdtree configuration
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * nested NERDTree
+"autocmd VimEnter * nested NERDTree
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -118,7 +121,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 ""let g:NERDTreeWinSize=50
 
 " tagbar configuration
-autocmd VimEnter * nested TagbarOpen
+"autocmd VimEnter * nested TagbarOpen
 map <F7> :TagbarToggle<CR>
 let g:tagbar_width = 50
 let g:tagbar_sort = 0
@@ -138,7 +141,7 @@ let g:cpp_experimental_template_highlight = 1
 let c_no_curly_error = 1
 
 " buffkill configuration
-map <C-c> :BD<CR>
+map <F4> :BD<CR>
 
 " vim-airline configuration
 let g:airline#extensions#tabline#enabled = 1

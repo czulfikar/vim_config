@@ -1,9 +1,33 @@
 # vim_config
 IMPORTANT: Latest commit is not tested with tmux. Decided to skip using tmux for now.
 
+Steps to successfully update VIM environment:
+=============================================
+1. Git clone this repo.
+2. Copy all files to $HOME folder. Overwrite existing files (if needed create backup first).
+3. Install Vundle plugin: 
+    # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+4. Open Vim editor and perform plugin install for all vim plugins:
+    Type ":" and command VundleInstall
+5. Execute ctags to generate tags for existing source files:
+    # cd <source_root_dir> && ctags -R .
+5. Restart Vim.
+
+Steps for Usage:
+================
+1. Open terminal window.
+2. Start tmux:
+    # tmux
+3. Start Vim.
+    # vim [filename]
+
 Main Commands:
+==============
 NERDTree:
   - C-n -> Toggle NERDTree state
+
+Tagbar:
+  - <F7> -> Toggle Tagbar
 
 a.vim:
   - :A  -> Switch back and forth between source and header
